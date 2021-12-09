@@ -18,11 +18,11 @@ public class Radio {
     public int switchChannelPrev() {
         if (currentChannel == 0) {
             currentChannel = 9;
-        }
-        if (currentChannel <= 9) {
+        } else
+        if (currentChannel > 0 && currentChannel <= 9) {
             currentChannel = currentChannel - 1;
         }
-        return currentChannel;
+                return currentChannel;
     }
 
     //делаем звук громче
