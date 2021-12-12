@@ -28,17 +28,17 @@ class RadioTest {
     }
 
     // переключаем канал на предыдущий
-    @Test // среднее значение
-    public void shouldDecreaseChannelMiddleValue() {
+    @Test // среднее значение 1
+    public void shouldDecreaseChannelMiddleValue1() {
         Radio radio2 = new Radio();
-        radio2.setCurrentChannel(5);
-        assertEquals(4, radio2.switchChannelPrev());
+        radio2.setCurrentChannel(7);
+        assertEquals(6, radio2.switchChannelPrev());
     }
     @Test // среднее значение 2
     public void shouldDecreaseChannelMiddleValue2() {
         Radio radio2 = new Radio();
-        radio2.setCurrentChannel(7);
-        assertEquals(6, radio2.switchChannelPrev());
+        radio2.setCurrentChannel(6);
+        assertEquals(5, radio2.switchChannelPrev());
     }
     @Test // минимальное значение
     public void shouldDecreaseChannelLessValue() {
