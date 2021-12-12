@@ -2,7 +2,7 @@ package ru.netology.domain;
 
 public class Radio {
     private int currentVolume;
-   private int currentChannel;
+    private int currentChannel;
 
    // переключаем канал на следующий
     public int switchChannelNext() {
@@ -16,13 +16,13 @@ public class Radio {
     }
     //переключаем канал на предыдущий
     public int switchChannelPrev() {
-        if (currentChannel == 0) {
-            currentChannel = 9;
-        } else
-        if (currentChannel > 0 && currentChannel <= 9) {
-            currentChannel = currentChannel - 1;
+        if (currentChannel <= 9){
+            currentChannel--;
         }
-                return currentChannel;
+        if (currentChannel < 0) {
+            currentChannel = 9;
+        }
+        return currentChannel;
     }
 
     //делаем звук громче
@@ -30,19 +30,23 @@ public class Radio {
         if (currentVolume < 10) {
             currentVolume = currentVolume + 1;
         }
+        if (currentVolume >= 10) {
+            currentVolume = 10;
+        }
         return currentVolume;
     }
     //делаем звук тише
-    public int decreaseVolume () {
-        if (currentVolume == 0) {
-        currentVolume = 0;
+    public int decreaseVolume (){
+        if (currentVolume <= 10) {
+            currentVolume--;
         }
-        if (currentVolume <= 10 && currentVolume > 0) {
-            currentVolume = currentVolume - 1;
+        if (currentVolume <=0){
+            currentVolume = 0;
         }
         return currentVolume;
     }
 
+    // геттеры и сеттеры
     public int getCurrentVolume() {
         return currentVolume;
     }

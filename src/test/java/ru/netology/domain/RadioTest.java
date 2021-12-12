@@ -64,6 +64,12 @@ class RadioTest {
         radio2.setCurrentChannel(8);
         assertEquals(7, radio2.switchChannelPrev());
     }
+    @Test // недопустимое значение
+    public void shouldDecreaseChannelNotAvailableValue() {
+        Radio radio2 = new Radio();
+        radio2.setCurrentChannel(11);
+        assertEquals(11, radio2.switchChannelPrev());
+    }
 
     //делаем звук громче
     @Test // начальная средняя громкость
@@ -97,6 +103,12 @@ class RadioTest {
         radio4.setCurrentVolume(7);
         assertEquals(6, radio4.decreaseVolume());
     }
+    @Test // близко к максимальному значению
+    public void shouldDecreaseVolumeMiddleValue3() {
+        Radio radio4 = new Radio();
+        radio4.setCurrentVolume(8);
+        assertEquals(7, radio4.decreaseVolume());
+    }
     @Test // начальная минимальная громкость
     public void shouldDecreaseVolumeLessValue() {
         Radio radio4 = new Radio();
@@ -121,6 +133,13 @@ class RadioTest {
         radio4.setCurrentVolume(9);
         assertEquals(8, radio4.decreaseVolume());
     }
+    @Test // недопустимое значение
+    public void shouldDecreaseVolumeNotAvailableValue() {
+        Radio radio4 = new Radio();
+        radio4.setCurrentVolume(11);
+        assertEquals(11, radio4.decreaseVolume());
+    }
+
     // проверяем геттеры (а надо ли? как от этого избавиться?)
     @Test
     public void shouldUseGetterVolume () {
